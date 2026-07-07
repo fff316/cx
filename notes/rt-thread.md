@@ -8,3 +8,6 @@ RT-Thread NANO为极简版本，只需3kb Flash，1.2kb RAM
 - ROM通常只读，掉电不丢失，传统 ROM 已经很少单独使用，用于单片机启动程序
 - Flash可读写，掉电不丢失，按扇区操作，用于存储程序和用户数据（Flash统一放电全变1，单独充电变为0）
 - EEPROM比Flash成本更高，可单个字节充放电，所以可以修改单个字节而不用按扇区操作
+
+
+RT_Thread启动顺序：SystemInit()->$ Sub$$ main()->rtthread_startup()里包含rt_application_init()里包含main_thread_entry()里包含$ Super$$ main()
